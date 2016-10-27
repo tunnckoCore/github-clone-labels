@@ -36,6 +36,7 @@
     "standard-version": "^2.4.0"
   },
   "files": [
+    "cli.js",
     "index.js"
   ],
   "keywords": [

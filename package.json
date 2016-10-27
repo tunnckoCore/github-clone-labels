@@ -1,6 +1,6 @@
 {
   "name": "github-clone-labels",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "Cloning labels from source repository to destination repository. Period.",
   "repository": "tunnckoCore/github-clone-labels",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",

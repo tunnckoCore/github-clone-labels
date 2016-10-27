@@ -27,8 +27,11 @@ module.exports = function githubCloneLabels (opts, cb) {
     url: `${api}/${opts.src}/labels`
   }, function callback (e, res, data) {
     if (res.statusCode !== 200) {
-      return handleErrors(res, data, cb)
+      var val = ' ' + res.statusCode
+      cb(new Error(data.message + val))
+      return
     }
+
     ctrl.mapSeries(data, function (label, next) {
       get.concat({
         method: 'POST',
@@ -37,18 +40,12 @@ module.exports = function githubCloneLabels (opts, cb) {
         url: `${api}/${opts.dest}/labels`,
         body: label
       }, function (er, response, json) {
-        if (res.statusCode !== 201) {
-          return handleErrors(response, json, next)
+        if (response.statusCode !== 201) {
+          next(new Error(json.message + ' ' + response.statusCode))
+          return
         }
         next(null, json, response)
       })
     }, cb)
   })
-}
-
-function handleErrors (res, data, next) {
-  var err = new Error(data.message)
-  err.data = data
-  err.res = res
-  next(err)
 }

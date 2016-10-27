@@ -7,10 +7,12 @@
 
 'use strict'
 
+// var githubCloneLabels = require('./index')
+
 // githubCloneLabels({
 //   src: 'tunnckoCore/gruu',
-//   dest: 'tunnckoCore/gruu-reporter',
-//   token: 'fsdf'
+//   dest: 'node-minibase/minibase',
+//   token: 's'
 // }, function (err, data) {
 //   console.log(err, 'res', data)
 // })

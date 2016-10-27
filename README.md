@@ -11,6 +11,12 @@
 $ npm i github-clone-labels --save
 ```
 
+or use it as **CLI**
+
+```sh
+$ npm i github-clone-labels --global
+```
+
 ## Usage
 > For more use-cases see the [tests](./test.js)
 
@@ -18,14 +24,50 @@ $ npm i github-clone-labels --save
 const githubCloneLabels = require('github-clone-labels')
 ```
 
+## CLI Usage
+
+```
+$ github-clone-labels --help
+$ github-clone-labels tunnckoCore/gruu node-minibase/minibase --token 89s7df9h34jkbkjas
+```
+
 ## API
 
+### [githubCloneLabels](index.js#L41)
+> Clone labels of `opts.src` repository to some `opts.dest` repository. Pattern is `username/repo`. You also can provide `opts.token` for auth.
+
+**Example**
+
+```js
+var clone = require('github-clone-labels')
+
+clone({
+  src: 'tunnckoCore/gruu',
+  dest: 'node-minibase/minibase',
+  token: '...'
+}, function done (err, res) {
+  if (err) return console.error(err.stack)
+
+  console.log(res)
+  // => array of created labels at `opts.dest`
+})
+```
+
+**Params**
+
+* `<opts>` **{Object}**    
+* `<cb>` **{Function}**    
+
 ## Related
-- [in-array](https://www.npmjs.com/package/in-array): Return true if a value exists in an array. Faster than using… [more](https://github.com/jonschlinkert/in-array) | [homepage](https://github.com/jonschlinkert/in-array "Return true if a value exists in an array. Faster than using indexOf and won't blow up on null values.")
-- [is-async-function](https://www.npmjs.com/package/is-async-function): Is function really asynchronous function? Trying to guess that based on check… [more](https://github.com/tunnckocore/is-async-function#readme) | [homepage](https://github.com/tunnckocore/is-async-function#readme "Is function really asynchronous function? Trying to guess that based on check if [common-callback-names][] exists as function arguments names or you can pass your custom.")
-- [is-installed](https://www.npmjs.com/package/is-installed): Checks that given package is installed on the system - globally or… [more](https://github.com/tunnckoCore/is-installed#readme) | [homepage](https://github.com/tunnckoCore/is-installed#readme "Checks that given package is installed on the system - globally or locally.")
-- [is-missing](https://www.npmjs.com/package/is-missing): Check that given `name` or `user/repo` exists in npm registry or in… [more](https://github.com/tunnckocore/is-missing#readme) | [homepage](https://github.com/tunnckocore/is-missing#readme "Check that given `name` or `user/repo` exists in npm registry or in github as user repository.")
+- [always-done](https://www.npmjs.com/package/always-done): Handle completion and errors with elegance! Support for streams, callbacks, promises, child processes, async/await and sync… [more](https://github.com/hybridables/always-done#readme) | [homepage](https://github.com/hybridables/always-done#readme "Handle completion and errors with elegance! Support for streams, callbacks, promises, child processes, async/await and sync functions. A drop-in replacement for [async-done][] - pass 100% of its tests plus more")
+- [base](https://www.npmjs.com/package/base): base is the foundation for creating modular, unit testable and highly pluggable node.js applications, starting with… [more](https://github.com/node-base/base) | [homepage](https://github.com/node-base/base "base is the foundation for creating modular, unit testable and highly pluggable node.js applications, starting with a handful of common methods, like `set`, `get`, `del` and `use`.")
+- [github-base](https://www.npmjs.com/package/github-base): JavaScript wrapper that greatly simplifies working with GitHub's API. | [homepage](https://github.com/jonschlinkert/github-base "JavaScript wrapper that greatly simplifies working with GitHub's API.")
+- [in-array](https://www.npmjs.com/package/in-array): Return true if a value exists in an array. Faster than using indexOf and won't blow… [more](https://github.com/jonschlinkert/in-array) | [homepage](https://github.com/jonschlinkert/in-array "Return true if a value exists in an array. Faster than using indexOf and won't blow up on null values.")
+- [is-async-function](https://www.npmjs.com/package/is-async-function): Is function really asynchronous function? Trying to guess that based on check if [common-callback-names][] exists as… [more](https://github.com/tunnckocore/is-async-function#readme) | [homepage](https://github.com/tunnckocore/is-async-function#readme "Is function really asynchronous function? Trying to guess that based on check if [common-callback-names][] exists as function arguments names or you can pass your custom.")
+- [is-installed](https://www.npmjs.com/package/is-installed): Checks that given package is installed on the system - globally or locally. | [homepage](https://github.com/tunnckoCore/is-installed#readme "Checks that given package is installed on the system - globally or locally.")
+- [is-missing](https://www.npmjs.com/package/is-missing): Check that given `name` or `user/repo` exists in npm registry or in github as user repository. | [homepage](https://github.com/tunnckocore/is-missing#readme "Check that given `name` or `user/repo` exists in npm registry or in github as user repository.")
 - [isarray](https://www.npmjs.com/package/isarray): Array#isArray for older browsers | [homepage](https://github.com/juliangruber/isarray "Array#isArray for older browsers")
+- [minibase](https://www.npmjs.com/package/minibase): MiniBase is minimalist approach to Base - @node-base, the awesome framework. Foundation for building complex APIs… [more](https://github.com/node-minibase/minibase#readme) | [homepage](https://github.com/node-minibase/minibase#readme "MiniBase is minimalist approach to Base - @node-base, the awesome framework. Foundation for building complex APIs with small units called plugins. Works well with most of the already existing [base][] plugins.")
 
 ## Contributing
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/tunnckoCore/github-clone-labels/issues/new).  
@@ -35,6 +77,9 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 
 [![tunnckoCore.tk][author-www-img]][author-www-url] [![keybase tunnckoCore][keybase-img]][keybase-url] [![tunnckoCore npm][author-npm-img]][author-npm-url] [![tunnckoCore twitter][author-twitter-img]][author-twitter-url] [![tunnckoCore github][author-github-img]][author-github-url]
 
+[async-done]: https://github.com/gulpjs/async-done
+[base]: https://github.com/node-base/base
+[common-callback-names]: https://github.com/tunnckocore/common-callback-names
 [in-array]: https://github.com/jonschlinkert/in-array
 
 [npmjs-url]: https://www.npmjs.com/package/github-clone-labels
@@ -82,4 +127,3 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [new-message-url]: https://github.com/tunnckoCore/ama
 [new-message-img]: https://img.shields.io/badge/ask%20me-anything-green.svg
 
-[common-callback-names]: https://github.com/tunnckocore/common-callback-names

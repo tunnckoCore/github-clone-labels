@@ -39,10 +39,10 @@
   ],
   "keywords": [
     "arr",
-    "github-clone-labels",
     "array",
     "check",
     "exists",
+    "github-clone-labels",
     "in",
     "in-array",
     "includes",
@@ -69,11 +69,18 @@
         "isarray",
         "is-missing",
         "is-installed",
-        "is-async-function"
+        "is-async-function",
+        "minibase",
+        "base",
+        "github-base",
+        "always-done"
       ]
     },
     "reflinks": [
-      "in-array"
+      "in-array",
+      "async-done",
+      "base",
+      "common-callback-names"
     ],
     "lint": {
       "reflinks": true

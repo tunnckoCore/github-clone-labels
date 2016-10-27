@@ -11,6 +11,33 @@ var assert = require('assert')
 var ctrl = require('async')
 var get = require('simple-get')
 
+/**
+ * > Clone labels of `opts.src` repository to
+ * some `opts.dest` repository. Pattern is `username/repo`.
+ * You also can provide `opts.token` for auth.
+ *
+ * **Example**
+ *
+ * ```js
+ * var clone = require('github-clone-labels')
+ *
+ * clone({
+ *   src: 'tunnckoCore/gruu',
+ *   dest: 'node-minibase/minibase',
+ *   token: '...'
+ * }, function done (err, res) {
+ *   if (err) return console.error(err.stack)
+ *
+ *   console.log(res)
+ *   // => array of created labels at `opts.dest`
+ * })
+ * ```
+ *
+ * @param  {Object}   `<opts>`
+ * @param  {Function} `<cb>`
+ * @api public
+ */
+
 module.exports = function githubCloneLabels (opts, cb) {
   assert.strictEqual(opts && typeof opts, 'object', 'expect `src` to be a object')
   assert.strictEqual(typeof cb, 'function', 'expect `cb` to be a function')

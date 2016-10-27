@@ -54,9 +54,7 @@ module.exports = function githubCloneLabels (opts, cb) {
     url: `${api}/${opts.src}/labels`
   }, function callback (e, res, data) {
     if (res.statusCode !== 200) {
-      var val = ' ' + res.statusCode
-      cb(new Error(data.message + val))
-      return
+      return handleErrors(res, data, cb)
     }
 
     ctrl.mapSeries(data, function (label, next) {
@@ -68,11 +66,17 @@ module.exports = function githubCloneLabels (opts, cb) {
         body: label
       }, function (er, response, json) {
         if (response.statusCode !== 201) {
-          next(new Error(json.message + ' ' + response.statusCode))
-          return
+          return handleErrors(response, json, next)
         }
         next(null, json, response)
       })
     }, cb)
   })
+}
+
+function handleErrors (resp, json, callback) {
+  var err = new Error(json.message + ' ' + resp.statusCode)
+  err.data = json
+  err.res = resp
+  callback(err)
 }

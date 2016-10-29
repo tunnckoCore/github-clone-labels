@@ -36,6 +36,11 @@ $ github-clone-labels tunnckoCore/gruu node-minibase/minibase --token 89s7df9h34
 ### [githubCloneLabels](index.js#L41)
 > Clone labels of `opts.src` repository to some `opts.dest` repository. Pattern is `username/repo`. You also can provide `opts.token` for auth.
 
+**Params**
+
+* `<opts>` **{Object}**    
+* `<cb>` **{Function}**    
+
 **Example**
 
 ```js
@@ -52,11 +57,6 @@ clone({
   // => array of created labels at `opts.dest`
 })
 ```
-
-**Params**
-
-* `<opts>` **{Object}**    
-* `<cb>` **{Function}**    
 
 ## Related
 - [always-done](https://www.npmjs.com/package/always-done): Handle completion and errors with elegance! Support for streams, callbacks, promises, child processes, async/await and sync… [more](https://github.com/hybridables/always-done#readme) | [homepage](https://github.com/hybridables/always-done#readme "Handle completion and errors with elegance! Support for streams, callbacks, promises, child processes, async/await and sync functions. A drop-in replacement for [async-done][] - pass 100% of its tests plus more")

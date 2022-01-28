@@ -23,7 +23,7 @@
   "dependencies": {
     "async": "^2.1.2",
     "minimist": "^1.2.0",
-    "simple-get": "^2.3.0"
+    "simple-get": "^4.0.1"
   },
   "devDependencies": {
     "commitizen": "^2.8.6",

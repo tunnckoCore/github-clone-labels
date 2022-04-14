@@ -21,7 +21,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
-    "async": "^2.1.2",
+    "async": "^3.2.2",
     "minimist": "^1.2.0",
     "simple-get": "^2.3.0"
   },
